@@ -1,0 +1,52 @@
+$.post("/admin/food_items/get_cs_cuisines",
+      {
+        cs_course_type: $("#food_item_cs_relation_attributes_cs_course_type_id").find(":selected").text()
+      },
+      function(data,status){
+        var $el = $("#food_item_cs_relation_attributes_cs_cuisine_id ");
+        $el.empty(); 
+        $.each(data["cs_cuisines"], function( key, value ) {
+        $el.append($("<option></option>").attr("value", value.id).text(value.name));
+        });
+      });
+
+
+json_options = {
+
+}
+
+def proc_exp(a, &g)
+  g.call(a)
+  yield(a)
+end
+
+proc_exp_object = proc_exp(10) {|x| x*10}
+
+def proc_exp_2(&g)
+  g.call(2)
+  yield(2)
+end
+
+proc_exp_object = proc_exp_2 {|x| x*10}
+
+
+
+
+words = %w(Jane, aara, multiko)
+upcase_words = words.map {|x| x.upcase}
+
+p upcase_words
+
+class Symbol
+    
+    # A generalized conversion of a method name
+    # to a proc that runs this method.
+    #
+    def to_proc
+        lambda {|x, *args| x.send(self, *args)}
+    end
+    
+end
+
+words = %w(Jane, aara, multiko)
+upcase_words = words.map(&:upcase)

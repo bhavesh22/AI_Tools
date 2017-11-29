@@ -1,0 +1,60 @@
+Enter the values of parameters
+<%= form_tag '/predict', multipart: true, remote: true , id: 'template_form' do %>
+  <table>
+    <tr>
+      <td>
+       Learning Rate
+      </td>
+      <td>
+        <%= text_field_tag :learning_rate %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Number of Iteration
+      </td>
+      <td>
+        <%= text_field_tag :num_iteration %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Print Every
+      </td>
+      <td>
+        <%= text_field_tag :print_every %>
+      </td>
+    </tr>
+     <tr>
+      <td>
+        Variable Running Rates
+      </td>
+      <td>
+        <%= text_field_tag :variable_learning_rate %>
+      </td>
+    </tr>
+     <tr>
+      <td>
+        Uploading Image
+      </td>
+      <td>
+        <%= file_field_tag :picture %>
+      </td>
+    </tr>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </table>
+ 
+  <%= submit_tag "Calculate" , id: 'submit_button_template' %>
+<% end %>
+<div class="cat_classification">
+  Image uploaded is
+  <div id="cat_classification"></div>
+  <div id="learning_graph"></div>
+</div>
+
+<style type="text/css">
+  .cat_classification {
+    display: none;
+    margin-top: 15px;
+  }
+</style>

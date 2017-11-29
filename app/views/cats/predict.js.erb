@@ -1,0 +1,8 @@
+$("#submit_button_template").css('color','red')
+$(".cat_classification").css('display','block')
+$("#cat_classification").html("<%= @cat_identification %>")
+$('#learning_graph').prepend('<img id="theImg" src="<%= 'assets/'+@cin + '.png' %>" />')
+$.post("/delete_files",
+      {
+        cin: "<%= @cin %>"
+      },function(data,status){});
