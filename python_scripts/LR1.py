@@ -1,13 +1,25 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib as plt
+import matplotlib
+matplotlib.use('Agg')
 import h5py
 import scipy
 from PIL import Image
 from scipy import ndimage
-from lr_utils import load_dataset
 import re
 import sys
 import time
+def load_dataset():
+    train_dataset = h5py.File('datasets/train_catvnoncat.h5', "r")
+    train_set_x_orig = np.array(train_dataset["train_set_x"][:]) # your train set features
+    train_set_y_orig = np.array(train_dataset["train_set_y"][:]) # your train set labels
+    test_dataset = h5py.File('datasets/test_catvnoncat.h5', "r")
+    test_set_x_orig = np.array(test_dataset["test_set_x"][:]) # your test set features
+    test_set_y_orig = np.array(test_dataset["test_set_y"][:]) # your test set labels
+    classes = np.array(test_dataset["list_classes"][:]) # the list of classes
+    train_set_y_orig = train_set_y_orig.reshape((1, train_set_y_orig.shape[0]))
+    test_set_y_orig = test_set_y_orig.reshape((1, test_set_y_orig.shape[0]))
+    return train_set_x_orig, train_set_y_orig, test_set_x_orig, test_set_y_orig, classes
 train_set_x_orig, train_set_y, test_set_x_orig, test_set_y, classes = load_dataset()
 train_set_x_flatten = train_set_x_orig.reshape(train_set_x_orig.shape[0], -1).T  
 test_set_x_flatten = test_set_x_orig.reshape(test_set_x_orig.shape[0], -1).T  
@@ -112,6 +124,7 @@ my_image = scipy.misc.imresize(image, size=(num_px,num_px)).reshape((1, num_px*n
 my_predicted_image = predict(d["w"], d["b"], my_image)
 f = open(cat_identification_number+ ".txt","w+")
 f.write(classes[int(np.squeeze(my_predicted_image)),].decode("utf-8"))
+f.close()
 # plt.imshow(image)
 print("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts a \"" + classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") +  "\" picture.")
 
