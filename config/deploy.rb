@@ -11,7 +11,7 @@ set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
-set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+set :deploy_to,       "/apps/AI_Tools"
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
@@ -23,11 +23,11 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 ## Defaults:
-# set :scm,           :git
-# set :branch,        :master
+set :scm,           :git
+set :branch,        :release
 # set :format,        :pretty
 # set :log_level,     :debug
-# set :keep_releases, 5
+set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
 # set :linked_files, %w{config/database.yml}
@@ -72,7 +72,7 @@ namespace :deploy do
     end
   end
 
-  before :starting,     :check_revision
+  # before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
