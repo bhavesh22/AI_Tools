@@ -95,11 +95,11 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations = 2000, learning_rate
     return d
 d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = var_num_iteration, learning_rate = var_lr, print_cost = True, print_every = print_every)
 costs = np.squeeze(d['costs'])
-plt.plot(costs)
-plt.ylabel('cost')
-plt.xlabel('iterations (per hundreds)')
-plt.title("Learning rate =" + str(d["learning_rate"]))
-plt.savefig('app/assets/images/'+ cat_identification_number+'.png')
+# plt.plot(costs)
+# plt.ylabel('cost')
+# plt.xlabel('iterations (per hundreds)')
+# plt.title("Learning rate =" + str(d["learning_rate"]))
+# plt.savefig('app/assets/images/'+ cat_identification_number+'.png')
 # plt.show()
 if(variable_learning_rate == "true"):
     learning_rates = [0.01, 0.001, 0.0001]
