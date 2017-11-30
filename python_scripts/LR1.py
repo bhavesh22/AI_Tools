@@ -1,7 +1,7 @@
 import numpy as np
-import matplotlib as plt
 import matplotlib
 matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import h5py
 import scipy
 from PIL import Image
