@@ -31,9 +31,8 @@ class CatsController < ApplicationController
 	end
 
 	def delete_files
-		binding.pry
 		cin = params[:cin]
-		File.delete('app/assets/images/' + cin +".png")
+		# File.delete('app/assets/images/' + cin +".png")
 	end
 
 end
