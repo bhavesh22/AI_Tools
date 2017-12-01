@@ -100,7 +100,7 @@ plt.plot(costs)
 plt.ylabel('cost')
 plt.xlabel('iterations (per hundreds)')
 plt.title("Learning rate =" + str(d["learning_rate"]))
-plt.savefig('app/assets/images/'+ cat_identification_number+'.png')
+plt.savefig('public/'+ cat_identification_number+'.png')
 # plt.show()
 if(variable_learning_rate == "true"):
     learning_rates = [0.01, 0.001, 0.0001]
