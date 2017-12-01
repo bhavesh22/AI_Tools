@@ -1,4 +1,4 @@
-Enter the values of parameters
+<p class="parameters_text">Enter the values of parameters</p>
 <%= form_tag '/predict', multipart: true, remote: true , id: 'template_form' do %>
   <table>
     <tr>
@@ -17,25 +17,25 @@ Enter the values of parameters
         <%= text_field_tag :num_iteration %>
       </td>
     </tr>
-    <tr>
+  <!--   <tr>
       <td>
         Print Every
       </td>
       <td>
         <%= text_field_tag :print_every %>
       </td>
-    </tr>
-     <tr>
+    </tr> -->
+   <!--   <tr>
       <td>
         Variable Running Rates
       </td>
       <td>
         <%= text_field_tag :variable_learning_rate %>
       </td>
-    </tr>
+    </tr> -->
      <tr>
       <td>
-        Uploading Image
+        Upload Image
       </td>
       <td>
         <%= file_field_tag :picture %>
@@ -56,5 +56,15 @@ Enter the values of parameters
   .cat_classification {
     display: none;
     margin-top: 15px;
+  }
+  .parameters_text {
+    font-size: 20px;
+    color: rebeccapurple;
+  }
+  #learning_rate {
+    width: 50px;
+  }
+  #num_iteration {
+    width: 50px;
   }
 </style>

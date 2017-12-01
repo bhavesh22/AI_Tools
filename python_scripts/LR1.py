@@ -37,10 +37,10 @@ def sigmoid(z):
     return s
 def initialize_with_zeros(dim):
     w = np.zeros((dim,1))
-    b = 0
+    b = 0.0
     return w, b
 def propagate(w, b, X, Y):
-    m = X.shape[1]
+    m = float(X.shape[1])
     A = sigmoid(np.dot(w.T,X)+ b )                                
     cost = -(1/m)*np.sum((Y*np.log(A)+(1-Y)*np.log(1-A)))    
     dw = 1/m*(np.dot(X,(A-Y).T))
@@ -68,7 +68,7 @@ def optimize(w, b, X, Y, num_iterations, learning_rate, print_cost = False, prin
     return params, grads, costs
 
 def predict(w, b, X):
-    m = X.shape[1]
+    m = float(X.shape[1])
     Y_prediction = np.zeros((1,m))
     w = w.reshape(X.shape[0], 1)
     A = sigmoid(np.dot(w.T,X)+ b )
