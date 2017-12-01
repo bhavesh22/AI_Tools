@@ -15,7 +15,7 @@ class CatsController < ApplicationController
 		num_iteration = params[:num_iteration].present? ? params[:num_iteration] : 100
 		print_every = params[:print_every].present? ? params[:print_every] : 2
 		variable_learning_rate = params[:variable_learning_rate].present? ? params[:variable_learning_rate] : 1
-		binding.remote_pry
+		# binding.remote_pry
 		system_command = "python " + "python_scripts/LR1.py " + learning_rate.to_s + " " + num_iteration.to_s + " "+ print_every.to_s + " " + variable_learning_rate.to_s + " " + cin.to_s + " " + cat_file_name
 		system system_command
 		@cat_identification = ""
