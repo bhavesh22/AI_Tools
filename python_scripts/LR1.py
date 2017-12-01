@@ -1,3 +1,5 @@
+import sys
+sys.path.append('/home/ubuntu/anaconda2/lib/python2.7/site-packages/')
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -7,7 +9,6 @@ import scipy
 from PIL import Image
 from scipy import ndimage
 import re
-import sys
 import time
 def load_dataset():
     train_dataset = h5py.File('datasets/train_catvnoncat.h5', "r")
